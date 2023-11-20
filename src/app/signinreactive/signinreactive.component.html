@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row col-6 mx-auto shadow p-3">
+        <h1 class="text-center text-info">Login In Page</h1>
+        <p class="text-center alert alert-danger" *ngIf="message">{{message}}</p>
+        <div class="col-10 mx-auto">
+       <form (ngSubmit)="login()">
+     <input type="text" class="form-control my-2" placeholder="Email" [(ngModel)]="email" name="email">
+     <input type="text" class="form-control my-2" placeholder="Password"[(ngModel)]="password" name="password">
+     <button class="btn btn-success w-100">Submit</button>
+     <span>Don't have an account?<a routerLink="/reactive">Login In</a></span>
+       </form>
+        </div>
+
+    </div>
+
+</div>
+

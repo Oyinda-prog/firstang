@@ -1,0 +1,9 @@
+<p>bloguserdashboard works!</p>
+<div>
+    <p>{{bloguser.email}}</p>
+</div>
+<form>
+<textarea name="content" id="" cols="30" rows="10" [(ngModel)]="content"></textarea>
+<input type="file" name="image" (change)="fileselected($event)">
+<button class="btn btn-primary" (click)="sendpost()">Post</button>
+</form>

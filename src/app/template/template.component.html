@@ -1,0 +1,23 @@
+<p>template works!</p>
+  <div class="container">
+    <div class="row">
+      
+        <div class="col-6 shadow bg-light">
+            <h1>Template Driven Form</h1>
+            <form action="">
+                <input type="text" placeholder="firstname" class="form-control my-2" name="firstname"  [(ngModel)]="firstname" #fname="ngModel" minlength="4" [class.is-valid]="fname.touched && fname.valid" [class.is-invalid]="fname.dirty && fname.invalid">
+                <div *ngIf="fname.dirty &&fname.invalid">
+                  <span class="text-center alert alert-warning" *ngIf="fname?.errors?.['minlength']">The minimumm number is 4</span>
+                </div>
+             
+                <input type="text" placeholder="lastname" class="form-control my-2" name="lastname" #lname="ngModel" [(ngModel)]="lastname">
+                <input type="text" placeholder="email" class="form-control my-2" name="email" #emil="ngModel" [(ngModel)]="email">
+                <input type="text" placeholder="password" class="form-control my-2" name="password" #pasword="ngModel" [(ngModel)]="password">
+                <button class="btn btn-primary pb-3 w-100">Submit</button>
+            </form>
+        </div>
+        <div class="col-6 shadow"></div>
+
+    </div>
+
+  </div>

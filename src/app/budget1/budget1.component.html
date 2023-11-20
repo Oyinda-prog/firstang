@@ -1,0 +1,10 @@
+<p>budget1 works!</p>
+<div>{{names}}</div>
+<div *ngFor="let budget of BudgetArray, let i=index" style="cursor: pointer;" (click)="getBudget(budget,i)">
+   <p>{{budget.firstname}}</p>   
+</div> 
+<div *ngIf="obj.name">
+   <input type="text" value="{{obj.name}}" class="my-2 form-control" [(ngModel)]="obj.name">
+<input type="text"  value="{{obj.age}}" class="my-2 form-control">
+<input type="text"  value="{{obj.color}}" class="my-2 form-control">
+</div>

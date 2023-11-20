@@ -1,0 +1,6 @@
+<p>state1 works!</p>
+<div class="container">
+   <div class="row" *ngFor="let item of items" style="cursor: pointer;" (click)=" updateItems(item)">
+     <p>{{item.name}}</p>
+   </div>
+</div>

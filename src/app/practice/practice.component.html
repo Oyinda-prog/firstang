@@ -1,0 +1,35 @@
+<p>practice works!</p>
+<div class="container mx-auto col-3">
+    <div class="row " *ngFor="let api of apiarray, let i=index">
+        <div class="col-9 shadow mx-auto my-2">
+   <p>{{i +1}}</p>
+   <p>{{api.login}}</p>
+   <img src="{{api.avatar_url}}" alt="" style="width: 200px; height: 200px;">
+    </div>
+</div>
+</div>
+<!-- <div *ngFor="let item of prac.getArray()">
+    <p>{{item}}</p>
+</div> -->
+<div  *ngFor="let item of numberArray">
+<p>{{item}}</p>
+</div>
+<p>hjj</p>
+<div *ngFor="let contact of contactArray,let i=index">
+   <span>{{contact.Firstname}}</span>
+</div>
+<!-- <div *ngFor="let name of local, let i=index">
+   <p>{{name.Firstname}}</p>
+   <p>{{name.Lastname}}</p>
+</div> -->
+<div>
+    <p>API</p>
+    <div *ngFor="let res of response">
+        <p>{{res.login}}</p>
+        <img src="{{res.avatar_url}}" alt="">
+
+    </div>
+
+</div>
+
+

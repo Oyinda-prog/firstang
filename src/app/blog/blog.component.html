@@ -1,0 +1,46 @@
+<p>blog works!</p>
+   <div class="container">
+    <div class="col-6 mx-auto shadow">
+        <h1>Sign Up</h1>
+         <div>
+            <form [formGroup]="blogform">
+                <label for="">Full Name</label>
+        <input type="text" class="form-control my-2"formControlName="full_name"
+        [class.is-valid]="blogform.get('full_name')?.valid && blogform.get('full_name')?.touched"
+        [class.is-invalid]="blogform.get('full_name')?.invalid && blogform.get('full_name')?.touched"
+        >
+        <small *ngIf="blogform.get('full_name')?.invalid && blogform.get('full_name')?.touched">
+            <span *ngIf="blogform.get('full_name')?.errors?.['required']" class="text-danger" >This field cannot be empty</span>
+        </small>
+        <label for="">Email</label>
+        <input type="text" class="form-control my-2" formControlName="email"
+        [class.is-valid]="blogform.get('email')?.valid && blogform.get('email')?.touched"
+        [class.is-invalid]="blogform.get('email')?.invalid && blogform.get('email')?.touched">
+        <small *ngIf="blogform.get('email')?.invalid && blogform.get('email')?.touched">
+            <span *ngIf="blogform.get('email')?.errors?.['required']" class="text-danger">This field cannot be empty</span>
+            <span *ngIf="blogform.get('email')?.errors?.['email']" class="text-danger">A valid email address is required</span>
+        </small>
+        <label for="">Password</label>
+        <input type="text" class="form-control my-2"  formControlName="password"
+        [class.is-valid]="blogform.get('password')?.valid && blogform.get('password')?.touched"
+        [class.is-invalid]="blogform.get('password')?.invalid && blogform.get('password')?.touched"
+        >
+        <small *ngIf="blogform.get('password')?.invalid && blogform.get('password')?.touched">
+            <span *ngIf="blogform.get('password')?.errors?.['required']" class="text-danger" >This field cannot be empty</span>
+        </small>
+
+       <div> <label for="">Username</label></div>
+        <input type="text" class="form-control my-2" formControlName="user_name"
+        [class.is-valid]="blogform.get('user_name')?.valid && blogform.get('user_name')?.touched"
+        [class.is-invalid]="blogform.get('user_name')?.invalid && blogform.get('user_name')?.touched" >
+        <small *ngIf="blogform.get('user_name')?.invalid && blogform.get('user_name')?.touched">
+            <span *ngIf="blogform.get('user_name')?.errors?.['required']" class="text-danger" >This field cannot be empty</span>
+        </small>
+        <button class="btn btn-primary mt-5" [disabled]="blogform.invalid" (click)="submitInfo()">Sign Up</button>
+
+            </form>
+         </div>
+
+    </div>
+
+   </div>

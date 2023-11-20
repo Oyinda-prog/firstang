@@ -1,0 +1,27 @@
+<p>budget2 works!</p>
+<div *ngIf="resObject.name">
+    <p>{{resObject.name}}</p>
+    <p>{{resObject.price}}</p>
+    <p>{{resObject.availability}}</p>
+    
+</div>
+<div>
+    <!-- <div *ngIf="obj.firstname">This is {{obj.firstname}} Details</div>
+    <input type="text" value="{{obj.lastname}}" class="form-control my-2" [(ngModel)]="lastname1">
+    <input type="text" value="{{obj.firstname}}" class="form-control my-2" [(ngModel)]="firstname1">
+    <input type="text" value="{{obj.email}}" class="form-control my-2" [(ngModel)]="email1">
+    <input type="text" value="{{obj.phonenumber}}" class="form-control my-2" [(ngModel)]="phonenumber1">
+    <button  class="btn btn-danger" (click)="delete()">Delete</button> -->
+    <!-- <button class="btn btn-success" (click)="edit()">Save</button> -->
+</div>
+
+<!-- <div *ngFor="let item of newarray, let i=index" style="cursor: pointer;"(click)="send(item)" >
+ <p>{{item.name}}</p>
+</div>
+<div (click)="sends()">
+    <p>{{name}}</p>
+</div> -->
+<!-- <div (click)="sends()">
+    <p>{{name}}</p>
+</div> -->
+<button (click)="sends()">Send</button>

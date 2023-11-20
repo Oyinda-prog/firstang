@@ -1,0 +1,130 @@
+<div class="container">
+     <div class="row">
+        <div class="col-6 col-lg-6 shadow">
+            <h6 class="text-center text-info">Reactive Form</h6>
+           <form  [formGroup]="forms">
+             <input type="text" placeholder="+23481...." class="form-control my-2" formControlName="first_name" [class.is-valid]="forms.get('first_name')?.valid && forms.get('first_name')?.touched " 
+             [class.is-invalid]="forms.get('first_name')?.invalid && forms.get('first_name')?.touched ">
+             <div *ngIf="forms.get('first_name')?.invalid && forms.get('first_name')?.touched">
+            
+                <span class="text-dark alert alert-danger" *ngIf="forms.get('first_name')?.errors?.['minlength']
+                ">Minimum length required is 5</span>
+                 <!-- <span class="text-dark alert alert-danger" *ngIf="fname?.errors?.['required']">This field is required</span> -->
+              </div>
+
+             <input type="text" placeholder="Surname"  class="form-control my-2" formControlName="lastname">
+             <input type="text" placeholder="Age"  class="form-control my-2" formControlName="age">
+             <input type="text" placeholder="Email"  class="form-control my-2" formControlName="email"  [class.is-valid]="forms.get('email')?.valid && forms.get('email')?.touched " 
+             [class.is-invalid]="forms.get('email')?.invalid && forms.get('email')?.touched ">
+             <input type="text" placeholder="Password"  class="form-control my-2" formControlName="password">
+             <button class="btn btn-primary  w-100" [disabled]="forms.invalid" (click)="submitForm()"> Submit Form</button>
+           </form>
+        </div>
+        <div class="col-6 col-lg-6 shadow">
+            <h6 class="text-center text-primary">Template Driven Form</h6>
+           <form #templateform="ngForm" >
+             <input type="text" placeholder="First Name" class="form-control my-2" [(ngModel)]="first_name"   #fname="ngModel"   minlength="14" required
+              [class.is-valid]="fname.valid && fname.dirty"
+              [class.is-invalid]="fname.invalid && fname.dirty" name="first_name"> 
+             
+              <!-- pattern="^\+234[0-9]*$" -->
+            
+              <div *ngIf="fname.invalid && fname.dirty">
+              <!-- <span class="text-dark alert alert-danger" *ngIf="fname?.errors?.['pattern']
+              ">Start with +234 and enter a valid phone number </span> -->
+                <span class="text-dark alert alert-danger" *ngIf="fname?.errors?.['minlength']
+                ">Minimum length required is 14</span>
+                 <span class="text-dark alert alert-danger" *ngIf="fname?.errors?.['required']">This field is required</span>
+              </div>
+             <input type="text" placeholder="Surname"  class="form-control my-2" [(ngModel)]="lastname" name="lastname">
+             <input type="text" placeholder="Age"  class="form-control my-2" [(ngModel)]="age" name="age">
+             <input type="text" placeholder="Email"  class="form-control my-2" [(ngModel)]="email" name="email" >
+             <input type="text" placeholder="Phone number"  class="form-control my-2" [(ngModel)]="phonenumber" name="phonenumber" appPhonevalidator required #pNo="ngModel"  [class.is-valid]="pNo.valid && pNo.dirty"
+             [class.is-invalid]="pNo.invalid && pNo.dirty"
+              >
+              <div *ngIf="pNo.invalid && pNo.dirty">
+              
+                  <span class="text-dark alert alert-danger" *ngIf="pNo?.errors?.['noCountryCode']
+                  ">Specify country code</span>
+                    <span class="text-dark alert alert-danger" *ngIf="pNo?.errors?.['required']">This field is required</span>
+                
+                </div>
+
+             <button class="btn btn-success  w-100" [disabled]="templateform.invalid"> Submit Form</button>
+      
+           </form>
+        </div>
+
+     </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-6 shadow bg-light">
+       <div>
+        <form [formGroup]="signupform">
+          <input type="text" class="my-2 form-control"
+           formControlName="first_name"
+             [class.is-valid]="signupform.get('first_name')?.valid && signupform.get('first_name')?.touched"
+             [class.is-invalid]="signupform.get('first_name')?.invalid && signupform.get('first_name')?.dirty"
+           >
+           <div *ngIf="signupform.get('first_name')?.invalid && signupform.get('first_name')?.touched">
+            <span *ngIf="signupform.get('first_name')?.errors?.['required']">This field is required</span>
+     <span *ngIf="signupform.get('first_name')?.errors?.['minlength']">Minimum length required is 6</span>
+           </div>
+
+          <input type="password" class="my-2 form-control" formControlName="password" placeholder="password"
+          [class.is-valid]="signupform.get('password')?.valid && signupform.get('password')?.touched" 
+           [class.is-invalid]="signupform.get('password')?.invalid && signupform.get ('password')?.touched">
+    <div *ngIf="signupform.get('password')?.invalid && signupform.get('password')?.touched">
+   <span *ngIf="signupform.get('password')?.errors?.['pattern']">start with numbers</span>
+   <span *ngIf="signupform.get('password')?.errors?.['required']">This field is required</span>
+    </div>
+    <!-- <input type="password" class="my-2 form-control" formControlName="password" placeholder="password"
+  [class.is-valid]="signupform.get('password')?.valid && signupform.get('password')?.touched"
+  [class.is-invalid]="signupform.get('password')?.invalid && signupform.get('password')?.touched">
+
+<div *ngIf="signupform.get('password')?.invalid && signupform.get('password')?.touched">
+  <span *ngIf="signupform.get('password')?.errors?.['pattern']">Password must start with numbers</span>
+  <span *ngIf="signupform.get('password')?.errors?.['required']">Password is required</span>
+</div> -->
+
+          <input type="text" class="my-2 form-control" formControlName="email"
+          
+          [class.is-valid]="signupform.get('email')?.valid && signupform.get('email')?.dirty">
+          <div *ngIf="signupform.get('email')?.invalid && signupform.get('email')?.dirty">
+            <span *ngIf="signupform.get('email')?.errors?.['email']">Valid email is required</span>
+     <span *ngIf="signupform.get('email')?.errors?.['required']">This field is required</span>
+           </div>
+          <button class="btn btn-primary w-100" [disabled]="signupform.invalid">Send</button>
+        </form>
+       </div>
+    </div>
+    <div></div>
+
+  </div>
+
+</div>
+<section>
+  <div class="example-label">Basic</div>
+  <div class="example-button-row">
+    <button mat-button>Basic</button>
+    <button mat-button color="primary">Primary</button>
+    <button mat-button color="accent">Accent</button>
+    <button mat-button color="warn">Warn</button>
+    <button mat-button disabled>Disabled</button>
+    <a mat-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+<section>
+  <div class="example-label">Raised</div>
+  <div class="example-button-row">
+    <button mat-raised-button>Basic</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warn</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>

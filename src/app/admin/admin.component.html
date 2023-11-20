@@ -1,0 +1,15 @@
+<p>admin works!</p>
+
+<div class="container">
+    <div class="row">
+   <div class="col-6">
+    <div *ngFor="let item of  total" style="cursor: pointer;" (click)="check(item)">
+     <p>{{item.name}}</p>
+    </div>
+   </div>
+   <div class="col-6">
+    <app-budget2></app-budget2>
+   </div>
+    </div>
+
+</div>

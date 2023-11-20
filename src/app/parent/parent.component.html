@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+  <div class="col-6 mx-auto shadow">
+   <h6 class="text-center">This is the parent map</h6>
+   <input type="text" name="" class="form-control my-3" [(ngModel)]="firstname">
+   <div> Message from child:{{msgfromchild}}</div>
+  </div>
+</div>
+  <div class="row">
+  <div class="col-6 mx-auto shadow">
+   <app-child [receiveFromParent]="firstname" (emitMessage)="receiveMsgFromChild($event)"></app-child>
+  </div>
+
+</div>
+</div>
+<div class="container">
+  <div class="row">
+  
+      <div class="col-6 mx-auto shadow">
+    <app-statemanagement1></app-statemanagement1>
+      </div>
+    
+   
+
+      <div class="col-6 mx-auto shadow">
+    <app-statemangement2></app-statemangement2>
+      </div>
+    
+ 
+  </div>
+
+</div>

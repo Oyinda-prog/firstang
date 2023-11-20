@@ -1,0 +1,16 @@
+
+<div>{{receiveparent}}</div>
+<p>lllll</p>
+<div [ngSwitch]="'hello'">
+  <div *ngSwitchCase="'klll'">Content for case 1</div>
+  <div *ngSwitchCase="'you'">Content for case 2</div>
+  <div *ngSwitchDefault>Default content when no cases match</div>
+</div >
+
+<div [ngSwitch]="condition">
+<p *ngSwitchCase="oyin">Yes,that is not my name</p>
+<p *ngSwitchCase="ruth">That is my name</p>
+<p *ngSwitchDefault>Dont select any</p>
+</div>
+
+<button (click)=" switch()">check</button>

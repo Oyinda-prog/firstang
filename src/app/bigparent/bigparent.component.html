@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 shadow">
+            <p>Message from parent:</p>
+    <input type="text" class="form-control my-2" [(ngModel)]="msgtochild">
+        </div>
+        <div class="col-6 shadow">
+           <div><app-smallchild [receiveparent]="msgtochild"></app-smallchild></div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="row" *ngFor="let api of array">
+    <div class="col-5 shadow mx-auto">
+     <p>{{api.login}}</p>
+     <img [src]="api.avatar_url" alt="">
+    </div>
+    </div>
+
+</div>
+
+ 
+
+<div class="container">
+    <div class="row">
+        <div class="col-6"><app-budget1></app-budget1></div>
+        <div class="col-6"><app-budget2></app-budget2></div>
+    </div>
+
+</div>

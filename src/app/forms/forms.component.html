@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="shadow my-2 pb-5">
+                <h4 class="text-center text-muted">Validating a Template Driven Form</h4>
+                <form action="" method="post">
+                    <input type="text" placeholder="first Name" name="first_name" class="form-control my-2" [(ngModel)]="first_name"  #fname="ngModel"
+        minlength="5" [class.is-valid]="fname.valid && fname.dirty" [class.is-invalid]="fname.invalid && fname.dirty"
+                    >
+                    <div *ngIf="fname.invalid && fname.touched">
+                        <span *ngIf="fname?.errors?.['minlength']" class="text-danger">
+                            Minimum length allowed is 5
+                        </span>
+
+                    </div>
+                    <input type="text" placeholder="Last name" name="last_name" class="form-control my-2">
+                    <input type="text" placeholder="Email" name="email" class="form-control my-2">
+                    <input type="text" placeholder="Password" name="password" class="form-control my-2">
+                    <button class="btn btn-info w-100">Submit</button>
+                </form>
+
+            </div>
+
+        </div>
+        <div class="col-6">
+            <div class="shadow my-2 pb-2">
+                <h4 class="text-center text-muted">Validating a Reactive Form</h4>
+                <form action="" method="post">
+                    <input type="text" placeholder="first Name" name="first_name" class="form-control my-2" >
+                    <input type="text" placeholder="Last name" name="last_name" class="form-control my-2" >
+                    <input type="text" placeholder="Email" name="email" class="form-control my-2">
+                    <input type="text" placeholder="Password" name="password" class="form-control my-2">
+                    <button class="btn btn-info w-100">Submit</button>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div>
+    {{this.newapi.getname()}}
+</div>
+<span *ngFor="let item of receivenames">
+{{item}}
+</span>
